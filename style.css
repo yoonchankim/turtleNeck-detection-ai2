@@ -40,5 +40,11 @@ a{
   left:10px;
   top:10px;
   text-decoration: none;
-  color: antiquewhite;
+  color: #a29bfe;
+  border:#a29bfe solid 3px;
+  border-radius:5px;
+  display:flex;
+  align-items: center;
+}a img{
+  margin-right:10px;
 }

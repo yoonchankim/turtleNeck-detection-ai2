@@ -47,14 +47,17 @@
         async function predict() {
             // predict can take in an image, video or canvas html element
             const prediction = await model.predict(webcam.canvas);
-            if(prediction[0].probability.toFixed(2)>=0.80){
+            if(prediction[0].probability.toFixed(2)>=0.60){
                 turtle.innerHTML ="거북목 자세에요";
+                turtle.style.color="#d63031";
             }
-            else if(prediction[0].probability.toFixed(2)<=0.20){
+            else if(prediction[0].probability.toFixed(2)<=0.40){
                 turtle.innerHTML ="바른 자세에요";
+                turtle.style.color="#81ecec";
             }
             else{
                 turtle.innerHTML ="몰라요";
+                turtle.style.color="#2d3436";
             }
             //  for (let i = 0; i < maxPredictions; i++) {
             //      const classPrediction =
@@ -85,6 +88,7 @@
         function handleSubmit(event) {
             event.preventDefault();
             number=parseInt(numInput.value);
+            numInput.value="";
             setInterval(webcamAudioAlert,number*60000);
         }        
         init();
