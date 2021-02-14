@@ -68,11 +68,9 @@
         function webcamAudioAlert(){
             if(select.options[select.selectedIndex].value==="text-mode"){
                 if(turtle.innerHTML==="바른 자세에요"){
-                    good_audio.play();
                     alert("바른자세에요.이 자세 계속 유지해주세요.")
                 }
                 else if(turtle.innerHTML==="거북목 자세에요"){
-                    turtle_audio.play();
                     alert("거북목 자세에요.이 자세 바른 자세로 바꿔주세요.")
                 }
             }
