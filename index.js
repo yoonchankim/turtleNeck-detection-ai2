@@ -11,9 +11,22 @@
         const numInput=form.querySelector(".num");
         const select=document.querySelector("select");
         let number=1;
+        let all=0;
+        let turtlePoze=0;
         let model, webcam, labelContainer, maxPredictions;
         // Load the image model and setup the webcam
         async function init() {
+            const localAll=localStorage.getItem("all");
+            if(localAll===null){
+                localStorage.setItem("all",0);
+            }
+            const localTurtle=localStorage.getItem("turtle");
+            if(localTurtle===null){
+                localStorage.setItem("turtle",0);
+            }
+            window.onbeforeunload=function localstorage(){
+                click=locaClick;
+            };
             const modelURL = URL + "model.json";
             const metadataURL = URL + "metadata.json";
             form.addEventListener("submit",handleSubmit);
@@ -36,13 +49,11 @@
                 labelContainer.appendChild(document.createElement("div"));
             }
         }
-    
         async function loop() {
             webcam.update(); // update the webcam frame
             await predict();
             window.requestAnimationFrame(loop);
         }
-    
         // run the webcam image through the image model
         async function predict() {
             // predict can take in an image, video or canvas html element
@@ -66,19 +77,41 @@
             //  }
         }
         function webcamAudioAlert(){
+            const All=localStorage.getItem("all");
+            const Turtle=localStorage.getItem("turtle");
             if(select.options[select.selectedIndex].value==="text-mode"){
                 if(turtle.innerHTML==="바른 자세에요"){
+                    all++;
+                    localStorage.setItem("all",parseInt(All)+1);
+                    turtleBar_today.innerHTML=`오늘 접속의 거북목 자세 비율:${turtlePoze/all*100}%`;
+                    turtleBar_all.innerHTML=`전체 접속의 거북목 자세 비율:${Turtle/(All+1)*100}%`;
                     alert("바른자세에요.이 자세 계속 유지해주세요.")
                 }
                 else if(turtle.innerHTML==="거북목 자세에요"){
+                    all++;
+                    turtlePoze++;
+                    localStorage.setItem("all",parseInt(All)+1);
+                    localStorage.setItem("turtle",parseInt(Turtle)+1);
+                    turtleBar_all.innerHTML=`전체 접속의 거북목 자세 비율:${(Turtle+1)/(All+1)*100}%`;
+                    turtleBar_today.innerHTML=`오늘 접속의 거북목 자세 비율:${turtlePoze/all*100}%`;
                     alert("거북목 자세에요.이 자세 바른 자세로 바꿔주세요.")
                 }
             }
             if(select.options[select.selectedIndex].value==="audio-mode"){
                 if(turtle.innerHTML==="바른 자세에요"){
+                    all++;
+                    localStorage.setItem("all",parseInt(All)+1);
+                    turtleBar_all.innerHTML=`전체 접속의 거북목 자세 비율:${Turtle/(All+1)*100}%`;
+                    turtleBar_today.innerHTML=`오늘 접속의 거북목 자세 비율:${turtlePoze/all*100}%`;
                     good_audio.play();
                 }
                 else if(turtle.innerHTML==="거북목 자세에요"){
+                    all++;
+                    turtlePoze++;
+                    localStorage.setItem("all",parseInt(All)+1);
+                    localStorage.setItem("turtle",parseInt(Turtle)+1);
+                    turtleBar_all.innerHTML=`전체 접속의 거북목 자세 비율:${(Turtle+1)/(All+1)*100}%`;
+                    turtleBar_today.innerHTML=`오늘 접속의 거북목 자세 비율:${turtlePoze/all*100}%`;
                     turtle_audio.play();
                 }
             }
@@ -88,5 +121,6 @@
             number=parseInt(numInput.value);
             numInput.value="";
             setInterval(webcamAudioAlert,number*60000);
+            record();
         }        
         init();

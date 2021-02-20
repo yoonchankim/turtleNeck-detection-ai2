@@ -7,16 +7,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <audio  class="turtle_audio" src="turtle_neck.mp3"></audio>
-    <audio class="good_audio" src="good_pose.mp3"></audio>
+    <button id="jsMode">기록보기</button>
+    <div class="turtleBar">
+        <div class="turtleBar_today">오늘 접속의 거북목 자세 비율:0%</div>
+        <div class="turtleBar_all">전체 접속의 거북목 자세 비율:0%</div>
+    </div>
     <form>
         <input type="text" class="num"  placeholder="Enter interval for alarm.Unit is min" />
         <input type="submit" />
     </form>
-    <a class="you" href="https://www.youtube.com/watch?v=3aTPapvWpKs">
-        <img src="youtube.png"/>
-        <span>거북목자세 스트레칭 영상</span>
-    </a>
     <select>
         <option>--select mode--</option>
         <option value="text-mode">--text mode--</option>
@@ -43,15 +42,33 @@
             </a>
         </div>
     <div>
-    <a class="you" href="https://www.youtube.com/watch?v=3aTPapvWpKs">
-        <img src="youtube.png"/>
-        <span>거북목자세 스트레칭 영상</span>
-    </a>
+    <div class="youtube">
+        <a class="you" href="https://www.youtube.com/watch?v=3aTPapvWpKs">
+            <img src="youtube.png"/>
+            <span>거북목자세 스트레칭 영상1</span>
+        </a>
+        <a class="you" href="https://www.youtube.com/watch?v=5weUzv3vH8o">
+            <img src="youtube.png"/>
+            <span>거북목자세 스트레칭 영상2</span>
+        </a>
+        <a class="you" href="https://www.youtube.com/watch?v=phsSvWpVDro">
+            <img src="youtube.png"/>
+            <span>거북목자세 스트레칭 영상3</span>
+        </a>
+        <a class="you" href="https://www.youtube.com/watch?v=rAA_jAOuhWE">
+            <img src="youtube.png"/>
+            <span>거북목자세 스트레칭 영상4</span>
+        </a>
+    </div>
+
     <div id="webcam-container"></div>
     <div id="turtle"></div>
+    <audio  class="turtle_audio" src="turtle_neck.mp3"></audio>
+    <audio class="good_audio" src="good_pose.mp3"></audio>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
     <script src="index.js"></script> 
     <script src="bg.js"></script>
+    <script src="record.js"></script>
 </body>
 </html>
