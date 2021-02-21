@@ -1,7 +1,6 @@
 const turtleSpan=document.querySelector("button");
 const turtleBar=document.querySelector(".turtleBar");
 const turtleBar_today=document.querySelector(".turtleBar_today");
-const turtleBar_all=document.querySelector(".turtleBar_all");
 let click=0;
 function intit(){
     turtleSpan.addEventListener("click",clickSpan);
