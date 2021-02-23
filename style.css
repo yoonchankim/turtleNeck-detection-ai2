@@ -37,24 +37,30 @@ body{
 }
 .youtube{
   position: absolute;
-  left:0px;
-  top:200px;
+  left:600px;
+  top:438px;
   text-decoration: none;
   color: #a29bfe;
   border:#a29bfe solid 3px;
   border-radius:5px;
   display:flex;
+  width:315px;
+  height:190px;
   justify-content: center;
   flex-direction: column;
   background-color: white;
 }.youtube img{
   margin-right:10px;
 }
-
+.youtube a{
+  font-size:18px;
+  margin-top:10px;
+  margin-bottom:10px;
+}
 .status-bar{
   background-color:#00b894;
   width:100%;
-  height: 200px;
+  height: 225px;
   position: fixed;
   display:flex;
   align-items: center;
@@ -109,16 +115,7 @@ a{
   align-items: center;
 }
 
-#webcam-container{
-  position: relative;
-  top:300px;
-  left:-300px;
-}
-#turtle{
-  position: relative;
-  top:300px;
-  left:-300px;
-}
+
 @media screen and (max-width: 1300px) and (min-width: 859px){
   .status-bar_column:nth-child(2) div,
   .status-bar_column:nth-child(3) div{
@@ -230,4 +227,54 @@ a{
 }
 .turtleBar div{
   margin:10px;
+}
+select{
+  font-size:20px;
+  position: absolute;
+  left:978px;
+  top:493px;
+  width: 282px;
+margin-top: 10px;
+}
+input{
+  position: absolute;
+
+  font-size:20px;
+  left:975px;
+  top:548px;
+
+
+}
+button{
+  position: absolute;
+
+  font-size:20px;
+  left:978px;
+width:280px;
+  top:590px;
+
+}
+input:nth-child(1){
+  width: 200px;
+
+}
+input:nth-child(2){
+  width: 60px;
+  left:1200px;
+height:31px;
+}
+.name{
+  left:978px;
+  top:455px;
+  display: flex;
+  background-color: white;
+  align-items:center;
+  justify-content: center;
+  position: absolute;
+  width:300px;
+  font-size:20px;
+}
+#turtle{
+  height:23px;
+  color:black;
 }

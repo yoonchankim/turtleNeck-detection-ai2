@@ -48,7 +48,6 @@
     
             // append elements to the DOM
             document.getElementById("webcam-container").appendChild(webcam.canvas);
-            labelContainer = document.getElementById("label-container");
             for (let i = 0; i < maxPredictions; i++) { // and class labels
             }
         }
@@ -63,11 +62,9 @@
             const prediction = await model.predict(webcam.canvas);
             if(prediction[0].probability.toFixed(2)>=0.50){
                 turtle.innerHTML ="거북목 자세에요";
-                turtle.style.color="#d63031";
             }
             else if(prediction[0].probability.toFixed(2)<=0.50){
                 turtle.innerHTML ="바른 자세에요";
-                turtle.style.color="#81ecec";
             }
             //  for (let i = 0; i < maxPredictions; i++) {
             //      const classPrediction =
