@@ -17,7 +17,7 @@
     height:100%;
 }
 .status-bar_column div:hover{
-    transform: translateY(-20px);
+    transform: translateY(-15px);
     box-shadow:0 20px 50px #2d3436 ;
   }
   
@@ -56,7 +56,7 @@
     color:#95a5a6;
     font-size:50px;
     font-weight: 700;
-    transition:all 1s ease-in-out;
+    transition:all 0.55s ease-in-out;
 
 }
 .status-bar a{
